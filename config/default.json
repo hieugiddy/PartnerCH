@@ -1,0 +1,15 @@
+{
+    "server": {
+        "host": "localhost",
+        "port": "8889"
+    },
+    "mysql": {
+        "host": "freedb.tech",
+        "port": 3306,
+        "database": "freedbtech_hieugiddy",
+        "username": "freedbtech_hieugiddy",
+        "password": "12345678"
+    },
+    "salt": 10,
+    "secret_key": "hieugiddy"
+}

@@ -1,0 +1,100 @@
+<div class="col-md-3" style="margin-top:-50px">
+
+    <!-- Profile Image -->
+    <div class="card card-primary card-outline">
+        <div class="card-body box-profile">
+            <div class="text-center">
+                <img class="profile-user-img img-fluid img-circle" src="<%= data.avatar %>" alt="User profile picture">
+            </div>
+
+            <h3 class="profile-username text-center">
+                <%= data.hoten %>
+            </h3>
+
+            <p class="text-muted text-center">@
+                <%= data.username %>
+            </p>
+
+            <ul class="list-group list-group-unbordered mb-3">
+                <li class="list-group-item">
+                    <b>Trạng thái</b> <a class="float-right">Chưa phê duyệt</a>
+                </li>
+                <li class="list-group-item">
+                    <b>Loại dịch vụ</b>
+                    <a class="float-right">Cứu hộ xe máy, Sửa chữa xe máy, Sửa xe tại nhà</a>
+                </li>
+                <li class="list-group-item">
+                    <b>Loại hình</b>
+                    <a class="float-right">Doanh nghiệp nhà nước</a>
+                </li>
+                <li class="list-group-item">
+                    <b>Ngày tham gia</b>
+                    <a class="float-right">20/2/2021</a>
+                </li>
+            </ul>
+
+            <center>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-info btn-flat">Hành động</button>
+                    <button type="button" class="btn btn-info btn-flat dropdown-toggle dropdown-icon" data-toggle="dropdown" aria-expanded="false">
+                  <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                    <div class="dropdown-menu" role="menu">
+                        <a class="dropdown-item" href="/chi-nhanh">Chi nhánh</a>
+                        <a class="dropdown-item" href="/dich-vu">Dịch vụ</a>
+                        <a class="dropdown-item" href="/uu-dai">Ưu đãi</a>
+                        <a class="dropdown-item" href="/">Tài khoản</a>
+                    </div>
+                </div>
+            </center>
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+
+    <!-- About Me Box -->
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Thông tin doanh nghiệp</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <strong><i class="fas fa-book mr-1"></i> Tên doanh nghiệp</strong>
+
+            <p class="text-muted">
+                Trung Tâm Cứu Hộ Bảo Việt – Datraco
+            </p>
+
+            <hr>
+
+            <strong><i class="fas fa-map-marker-alt mr-1"></i> Địa chỉ</strong>
+
+            <p class="text-muted">155, Đường Lê Đình Lý, Phường Hòa Thuận Đông, Quận Hải Châu, Hòa Thuận Đông, Hải Châu, Đà Nẵng</p>
+
+            <hr>
+
+            <strong><i class="fas fa-pencil-alt mr-1"></i> Giới thiệu</strong>
+
+            <p class="text-muted">
+                Từ ngày 9-4, Tổng công ty Bảo hiểm Việt Nam, Công ty Bảo hiểm Ðà Nẵng, Công ty Thương mại Quảng Nam - Ðà Nẵng đã phối hợp thành lập và đưa Trung tâm cứu hộ giao thông Bảo Việt - Datraco tại Ðà Nẵng vào hoạt động. Trung tâm này có trụ sở tại 155 - Lê Ðình
+                Lý - Ðà Nẵng. Ðiện thoại: 0511.618170 và 0905092525. Trực 24/24 giờ.
+            </p>
+
+            <hr>
+
+            <strong><i class="far fa-file-alt mr-1"></i> Hotline</strong>
+
+            <p class="text-muted">0236 3618 170</p>
+
+            <hr>
+
+            <strong><i class="far fa-file-alt mr-1"></i> Giờ mở của - Giờ đóng cửa</strong>
+
+            <p class="text-muted">12:00 - 24:00</p>
+
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+</div>
+<!-- /.col -->

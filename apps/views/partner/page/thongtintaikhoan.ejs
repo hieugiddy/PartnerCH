@@ -1,0 +1,415 @@
+<div class="col-md-9">
+    <div class="card">
+        <div class="card-header p-2">
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Thông tin cơ bản</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Thông tin doanh nghiệp</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#hopdong" data-toggle="tab">Hợp đồng</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <div class="tab-content">
+                <div class="active tab-pane" id="activity">
+                    <form id="quickForm" action="/" method="POST" enctype="multipart/form-data">
+                        <div class="card-body" style="padding: 0.5rem;">
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label for="hoten">Họ tên</label>
+                                    <input type="text" name="hoten" class="form-control" id="hoten" value="Đặng Minh Hiếu" placeholder="Họ tên đầy đủ" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="gioitinh">Giới tính</label>
+                                    <select class="custom-select rounded-0 form-control" name="gioitinh" id="gioitinh" required>
+                                        <option value="Nam">Nam</option>
+                                        <option value="Nữ">Nữ</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="sodt">Số điện thoại</label>
+                                    <input type="text" name="sodt" class="form-control" id="sodt" value="0368376081" placeholder="Số điện thoại" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>Ngày sinh:</label>
+                                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                                        <input type="text" name="ngaysinh" id="ngaysinh" class="form-control datetimepicker-input" data-target="#reservationdate" value="09/06/2000" required />
+                                        <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                                            <div class="input-group-text" id="ic-ngaysinh"><i class="fa fa-calendar"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <label for="email">Email</label>
+                                    <input type="email" name="email" class="form-control" id="email" value="hieugiddy.pro@gmail.com" placeholder="Email" required>
+                                </div>
+                                <div class="form-group col-md-6 mt-1">
+                                    <label for="quoctich">Quốc tịch</label>
+                                    <select class="selectpicker countrypicker form-control" data-live-search="true" name="quoctich" id="quoctich"></select>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="avatar">Ảnh đại diện</label><br>
+                                    <img src="<%= data.avatar %>" alt="" width="100px" class="d-block mb-2" id="img-avatar" />
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" name="avatar" id="avatar" onchange="readURL(this,'img-avatar');" accept="image/gif, image/jpeg, image/png">
+                                        <label class="custom-file-label" for="avatar">Chọn file</label>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6 mt-1">
+                                    <label for="avatar">Địa chỉ</label><br>
+                                    <input type="text" id="pickup_country" class="form-control" value="12 Ông Ích Khiêm, Thanh Bình, Hải Châu, Đà Nẵng 550000, Việt Nam" placeholder="Address" />
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                        <div class="">
+                            <button type="submit" id="btn-luucoban" name="btn-luucoban" class="btn btn-primary">Lưu</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- /.tab-pane -->
+                <div class="tab-pane" id="timeline">
+                    <form id="quickForm" action="/" method="POST">
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="maso">Mã số doanh nghiệp</label>
+                                <input type="text" name="maso" class="form-control" id="maso" value="MS10031" placeholder="Mã số doanh nghiệp">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="tendoanhnghiep">Tên doanh nghiệp</label>
+                                <input type="text" name="tendoanhnghiep" class="form-control" id="tendoanhnghiep" value="Trung Tâm Cứu Hộ Bảo Việt – Datraco" placeholder="Tên doanh nghiệp" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="loaihinh">Loại hình kinh doanh</label>
+                                <select class="custom-select rounded-0 form-control" name="loaihinh" id="loaihinh" required>
+                                    <option value="1"> Doanh nghiệp liên doanh </option>
+                                    <option value="2"> Doanh nghiệp 100% vốn đầu tư nước ngoài</option>
+                                    <option value="3">Công ty TNHH 1 thành viên</option>
+                                    <option value="4">Doanh nghiệp tư nhân</option>
+                                    <option value="5">Doanh nghiệp nhà nước</option>
+                                    <option value="6">Cá nhân tự phát</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Lĩnh vực kinh doanh</label>
+                                    <div class="select2-purple">
+                                        <select class="select2" name="linhvuckinhdoanh" id="linhvuckinhdoanh" multiple="multiple" data-placeholder="Có thể chọn nhiều lĩnh vực" data-dropdown-css-class="select2-purple" style="width: 100%;">
+                                            <option value="LV1" selected>Cứu hộ xe máy</option>
+                                            <option value="LV2">Cứu hộ ôtô</option>
+                                            <option value="LV3">Cứu hộ xe điện</option>
+                                            <option value="LV4" selected>Sửa chữa xe máy</option>
+                                            <option value="LV5">Sửa chữa xe điện</option>
+                                            <option value="LV6">Sửa chữa xe ôtô</option>
+                                            <option value="LV7" selected>Thợ sửa khóa xe</option>
+                                            <option value="LV8" selected>Giao xăng hộ</option>
+                                            <option value="LV9" selected>Sửa xe tại nhà</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- /.form-group -->
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Ngày hoạt động:</label>
+                                <div class="input-group date" id="ngayhoatdong" data-target-input="nearest">
+                                    <input type="text" name="ngayhoatdong" id="ngayhoatdong" class="form-control datetimepicker-input" data-target="#ngayhoatdong" value="09/06/2000" required />
+                                    <div class="input-group-append" data-target="#ngayhoatdong" data-toggle="datetimepicker">
+                                        <div class="input-group-text" id="ic-ngaysinh"><i class="fa fa-calendar"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="website">Website/Fanpage/Facebook các nhân</label>
+                                <input type="text" name="website" class="form-control" id="website" value="https://baovietonline.com.vn/View?id=104" placeholder="Dán link của bạn tại đây" required>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Giới thiệu ngắn</label>
+                                    <textarea class="form-control" name="gioithieungan" id="gioithieungan" rows="5" placeholder="Enter ...">Từ ngày 9-4, Tổng công ty Bảo hiểm Việt Nam, Công ty Bảo hiểm Ðà Nẵng, Công ty Thương mại Quảng Nam - Ðà Nẵng đã phối hợp thành lập và đưa Trung tâm cứu hộ giao thông Bảo Việt - Datraco tại Ðà Nẵng vào hoạt động. Trung tâm này có trụ sở tại 155 - Lê Ðình Lý - Ðà Nẵng. Ðiện thoại: 0511.618170 và 0905092525. Trực 24/24 giờ.
+                                    </textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="">
+                            <button type="submit" id="btn-luunangcao" name="btn-luunangcao" class="btn btn-primary">Lưu</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- /.tab-pane -->
+                <div class="tab-pane" id="hopdong">
+                    <p>Tải xuống hợp đồng, in ra, điền vào và ký tên (đóng dấu). Rồi đến nộp tại văn phòng của chúng tôi, để hoàn tất đăng ký cung cấp dịch vụ trên ứng dụng.
+                        <a href="https://drive.google.com/u/2/uc?id=1MY9EDMAvoFwNYuxH18t1YDBUBntxl7Yf&export=download">Tải
+                            xuống tại đây.</a>
+                    </p>
+                    <div class="alert alert-dark" role="alert">
+                        <strong>Địa chỉ văn phòng: 46 Cao Thắng, Phường Thanh Bình, Quận Hải Châu, TP.Đà Nẵng</strong>
+                    </div>
+                    <h4>Xem trước hợp đồng</h4>
+                    <center><iframe src="https://drive.google.com/file/d/1MY9EDMAvoFwNYuxH18t1YDBUBntxl7Yf/preview" frameborder="0" width="90%" height="700px"></iframe></center>
+                </div>
+
+            </div>
+            <!-- /.tab-content -->
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+
+    <div class="card">
+        <div class="card-header p-2">
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a class="nav-link active" href="#upload" data-toggle="tab">Upload ảnh</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <div class="tab-content">
+                <div class="active tab-pane" id="upload">
+                    <form id="quickForm" action="/" method="POST" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="bf-cmnd">Ảnh mặt trước CMND/CCCD</label><br>
+                                <img src="http://vyctravel.com/libs/upload/ckfinder/images/Visa/h%E1%BB%99%20chi%E1%BA%BFu/Untitled-6(1).jpg" alt="" width="300px" class="d-block mb-2" id="img-bf-cmnd" />
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" name="bf-cmnd" id="bf-cmnd" onchange="readURL(this,'img-bf-cmnd');" accept="image/jpeg, image/png">
+                                    <label class="custom-file-label" for="bf-cmnd">Chọn file</label>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="af-cmnd">Ảnh mặt sau CMND/CCCD</label><br>
+                                <img src="https://i.pinimg.com/originals/63/21/ae/6321aea41990552b5148a00998413374.jpg" alt="" width="300px" class="d-block mb-2" id="img-af-cmnd" />
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" name="af-cmnd" id="af-cmnd" onchange="readURL(this,'img-af-cmnd');" accept="image/jpeg,image/png">
+                                    <label class="custom-file-label" for="af-cmnd">Chọn file</label>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6 mt-5">
+                                <label for="giayphep">Ảnh chụp giấy đăng ký kinh doanh/Giấy phép kinh doanh</label><br>
+                                <img src="https://thanhlapdoanhnghiepvn.vn/Uploads/images/dang-ky-giay-phep-kinh-doanh-doanh-nghiep(1).jpg" alt="" width="300px" class="d-block mb-2" id="img-giayphep" />
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" name="giayphep" id="giayphep" onchange="readURL(this,'img-giayphep');" accept="image/jpeg,image/png">
+                                    <label class="custom-file-label" for="giayphep">Chọn file</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mt-5">
+                            <div class="card card-default">
+                                <div class="card-header">
+                                    <h3 class="card-title">Ảnh chụp về nơi làm việc<small></h3>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <a href="https://via.placeholder.com/1200/FFFFFF.png?text=1"
+                                            data-toggle="lightbox" data-title="sample 1 - white" data-gallery="gallery">
+                                            <img src="https://via.placeholder.com/300/FFFFFF?text=1"
+                                                class="img-fluid mb-2" alt="white sample" />
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <a href="https://via.placeholder.com/1200/000000.png?text=2"
+                                            data-toggle="lightbox" data-title="sample 2 - black" data-gallery="gallery">
+                                            <img src="https://via.placeholder.com/300/000000?text=2"
+                                                class="img-fluid mb-2" alt="black sample" />
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <a href="https://via.placeholder.com/1200/FF0000/FFFFFF.png?text=3"
+                                            data-toggle="lightbox" data-title="sample 3 - red" data-gallery="gallery">
+                                            <img src="https://via.placeholder.com/300/FF0000/FFFFFF?text=3"
+                                                class="img-fluid mb-2" alt="red sample" />
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <a href="https://via.placeholder.com/1200/FF0000/FFFFFF.png?text=4"
+                                            data-toggle="lightbox" data-title="sample 4 - red" data-gallery="gallery">
+                                            <img src="https://via.placeholder.com/300/FF0000/FFFFFF?text=4"
+                                                class="img-fluid mb-2" alt="red sample" />
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <a href="https://via.placeholder.com/1200/000000.png?text=5"
+                                            data-toggle="lightbox" data-title="sample 5 - black" data-gallery="gallery">
+                                            <img src="https://via.placeholder.com/300/000000?text=5"
+                                                class="img-fluid mb-2" alt="black sample" />
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <a href="https://via.placeholder.com/1200/FFFFFF.png?text=6"
+                                            data-toggle="lightbox" data-title="sample 6 - white" data-gallery="gallery">
+                                            <img src="https://via.placeholder.com/300/FFFFFF?text=6"
+                                                class="img-fluid mb-2" alt="white sample" />
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <a href="https://via.placeholder.com/1200/FFFFFF.png?text=7"
+                                            data-toggle="lightbox" data-title="sample 7 - white" data-gallery="gallery">
+                                            <img src="https://via.placeholder.com/300/FFFFFF?text=7"
+                                                class="img-fluid mb-2" alt="white sample" />
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <a href="https://via.placeholder.com/1200/000000.png?text=8"
+                                            data-toggle="lightbox" data-title="sample 8 - black" data-gallery="gallery">
+                                            <img src="https://via.placeholder.com/300/000000?text=8"
+                                                class="img-fluid mb-2" alt="black sample" />
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <a href="https://via.placeholder.com/1200/FF0000/FFFFFF.png?text=9"
+                                            data-toggle="lightbox" data-title="sample 9 - red" data-gallery="gallery">
+                                            <img src="https://via.placeholder.com/300/FF0000/FFFFFF?text=9"
+                                                class="img-fluid mb-2" alt="red sample" />
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <a href="https://via.placeholder.com/1200/FFFFFF.png?text=10"
+                                            data-toggle="lightbox" data-title="sample 10 - white"
+                                            data-gallery="gallery">
+                                            <img src="https://via.placeholder.com/300/FFFFFF?text=10"
+                                                class="img-fluid mb-2" alt="white sample" />
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <a href="https://via.placeholder.com/1200/FFFFFF.png?text=11"
+                                            data-toggle="lightbox" data-title="sample 11 - white"
+                                            data-gallery="gallery">
+                                            <img src="https://via.placeholder.com/300/FFFFFF?text=11"
+                                                class="img-fluid mb-2" alt="white sample" />
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <a href="https://via.placeholder.com/1200/000000.png?text=12"
+                                            data-toggle="lightbox" data-title="sample 12 - black"
+                                            data-gallery="gallery">
+                                            <img src="https://via.placeholder.com/300/000000?text=12"
+                                                class="img-fluid mb-2" alt="black sample" />
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="card-body">
+                                    <div id="actions" class="row">
+                                        <div class="col-lg-6">
+                                            <div class="btn-group w-100">
+                                                <span class="btn btn-success col fileinput-button">
+                                                    <i class="fas fa-plus"></i>
+                                                    <span>Add files</span>
+                                                </span>
+                                                <button type="submit" class="btn btn-primary col start">
+                                                    <i class="fas fa-upload"></i>
+                                                    <span>Start upload</span>
+                                                </button>
+                                                <button type="reset" class="btn btn-warning col cancel">
+                                                    <i class="fas fa-times-circle"></i>
+                                                    <span>Cancel upload</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 d-flex align-items-center">
+                                            <div class="fileupload-process w-100">
+                                                <div id="total-progress" class="progress progress-striped active"
+                                                    role="progressbar" aria-valuemin="0" aria-valuemax="100"
+                                                    aria-valuenow="0">
+                                                    <div class="progress-bar progress-bar-success" style="width:0%;"
+                                                        data-dz-uploadprogress></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="table table-striped files" id="previews">
+                                        <div id="template" class="row mt-2">
+                                            <div class="col-auto">
+                                                <span class="preview"><img src="data:," alt=""
+                                                        data-dz-thumbnail /></span>
+                                            </div>
+                                            <div class="col d-flex align-items-center">
+                                                <p class="mb-0">
+                                                    <span class="lead" data-dz-name></span> (
+                                                    <span data-dz-size></span>)
+                                                </p>
+                                                <strong class="error text-danger" data-dz-errormessage></strong>
+                                            </div>
+                                            <div class="col-4 d-flex align-items-center">
+                                                <div class="progress progress-striped active w-100" role="progressbar"
+                                                    aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                                                    <div class="progress-bar progress-bar-success" style="width:0%;"
+                                                        data-dz-uploadprogress></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-auto d-flex align-items-center">
+                                                <div class="btn-group">
+                                                    <button class="btn btn-primary start">
+                                                        <i class="fas fa-upload"></i>
+                                                        <span>Start</span>
+                                                    </button>
+                                                    <button data-dz-remove class="btn btn-warning cancel">
+                                                        <i class="fas fa-times-circle"></i>
+                                                        <span>Cancel</span>
+                                                    </button>
+                                                    <button data-dz-remove class="btn btn-danger delete">
+                                                        <i class="fas fa-trash"></i>
+                                                        <span>Delete</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- /.card -->
+                        </div>
+                        <div class="">
+                            <button type="submit" id="btn-uploadanh" name="btn-uploadanh"
+                                class="btn btn-primary ml-auto">Lưu</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- /.col -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/static/js/bootstrap-select-country.min.js"></script>
+<script src="/static/plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
+<script>
+    $("#pickup_country").PlacePicker({
+        btnClass: "btn btn-xs btn-default",
+        key: "AIzaSyArDfi6xqaR3tbGkJov0I08y4eYV9KnrSI",
+        center: {
+            lat: 16.0779453,
+            lng: 108.211034
+        },
+        title: "Chọn địa chỉ hoạt động của bạn",
+        success: function (data, address) {
+            $("#pickup_country").val(data.formatted_address);
+        }
+    });
+    $('#quoctich').selectpicker('val', "VN");
+
+    $(function () {
+        $('#reservationdate').datetimepicker({
+            format: 'DD/MM/YYYY'
+        });
+        $('#ngayhoatdong').datetimepicker({
+            format: 'DD/MM/YYYY'
+        });
+    });
+    $(function () {
+        $(document).on('click', '[data-toggle="lightbox"]', function (event) {
+            event.preventDefault();
+            $(this).ekkoLightbox({
+                alwaysShowClose: true
+            });
+        });
+    });
+</script>

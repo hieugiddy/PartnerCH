@@ -1,0 +1,108 @@
+<div class="col-md-9">
+    <div class="card">
+        <div class="card-header">Thêm chi nhánh mới</div>
+        <div class="card-body">
+            <form id="quickForm" action="/" method="POST" enctype="multipart/form-data">
+                <div class="card-body" style="padding: 0.5rem;">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="tenchinhanh">Tên chi nhánh</label>
+                            <input type="text" name="tenchinhanh" class="form-control" id="tenchinhanh" placeholder="VD: Chi nhánh 1" required>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="hotline">Hotline</label>
+                            <input type="text" name="hotline" class="form-control" id="hotline" placeholder="VD: 023655111" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Giờ hoạt động:</label>
+                            <div class="input-group date" id="giohoatdong" data-target-input="nearest">
+                                <input type="text" class="form-control datetimepicker-input" data-target="#giohoatdong" required/>
+                                <div class="input-group-append" data-target="#giohoatdong" data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="far fa-clock"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Giờ đóng cửa:</label>
+                            <div class="input-group date" id="giodongcua" data-target-input="nearest">
+                                <input type="text" class="form-control datetimepicker-input" data-target="#giodongcua" required/>
+                                <div class="input-group-append" data-target="#giodongcua" data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="far fa-clock"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="phamvihoatdong">Phạm vi hoạt động</label>
+                            <input type="text" name="phamvihoatdong" class="form-control" id="phamvihoatdong" placeholder="VD: Cứu hộ khu vực Hải Châu" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Ngày họat động:</label>
+                            <div class="input-group date" id="ngayhoatdong" data-target-input="nearest">
+                                <input type="text" class="form-control datetimepicker-input" data-target="#ngayhoatdong" required/>
+                                <div class="input-group-append" data-target="#ngayhoatdong" data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="zalo">Zalo</label>
+                            <input type="text" name="zalo" class="form-control" id="zalo" placeholder="VD: 036888777">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="facebook">Facebook</label>
+                            <input type="text" name="facebook" class="form-control" id="facebook" placeholder="VD: https://facebook.com/teomeme">
+                        </div>
+                        <div class="form-group col-md-12 mt-1">
+                            <label for="diachi">Địa chỉ</label><br>
+                            <input type="text" name="diachi" id="diachi" class="form-control" readonly="true" placeholder="Địa chỉ" required/>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="latitude">Latitude</label><br>
+                                    <input type="text" name="latitude" id="latitude" class="form-control" placeholder="Latitude" readonly="true" required />
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="longitude">Longitude</label><br>
+                                    <input type="text" name="longitude" id="longitude" class="form-control" placeholder="Longitude" readonly="true" required />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.card-body -->
+                <div class="">
+                    <button type="submit" id="btn-themchinhanh" name="btn-themchinhanh" class="btn btn-primary">Lưu</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    $("#diachi").PlacePicker({
+        btnClass: "btn btn-xs btn-default",
+        key: "AIzaSyArDfi6xqaR3tbGkJov0I08y4eYV9KnrSI",
+        center: {
+            lat: 16.0779453,
+            lng: 108.211034
+        },
+        title: "Chọn địa chỉ hoạt động của bạn",
+        success: function(data, address) {
+            $("#diachi").val(data.formatted_address);
+            $("#diachi").attr("readonly", false);
+            $('#latitude').val(data.lat);
+            $('#longitude').val(data.lng);
+        }
+    });
+    $(function() {
+        $('#giohoatdong').datetimepicker({
+            format: 'LT'
+        });
+        $('#giodongcua').datetimepicker({
+            format: 'LT'
+        });
+        $('#ngayhoatdong').datetimepicker({
+            format: 'DD/MM/YYYY'
+        });
+    });
+</script>

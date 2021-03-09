@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        <%= data.page_name%> |
+            <%= data.web_title%>
+    </title>
+    <%- include('partner/layout/head'); %>
+</head>
+
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <%- include('partner/layout/navigation'); %>
+            <!-- /.navbar -->
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <div class="container-fluid">
+                        <div class="row mb-2">
+                            <div class="col-sm-6 ml-auto">
+                                <ol class="breadcrumb float-sm-right">
+                                    <% for(var i=0;i<data.breadcrumb.length-1;i++){ %>
+                                        <li class="breadcrumb-item">
+                                            <a href="<%= data.breadcrumb[i].path %>">
+                                                <%= data.breadcrumb[i].name %>
+                                            </a>
+                                        </li>
+                                        <% }; %>
+                                            <li class="breadcrumb-item active">
+                                                <%= data.breadcrumb[data.breadcrumb.length-1].name %>
+                                            </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.container-fluid -->
+                </section>
+
+                <!-- Main content -->
+                <section class="content">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <%- include('partner/layout/profile'); %>
+                                <%- include('partner/page/'+data.page); %>
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </section>
+                <!-- /.content -->
+            </div>
+            <!-- /.content-wrapper -->
+
+
+            <%- include('partner/layout/footer'); %>
+    </div>
+    <!-- ./wrapper -->
+
+</body>
+
+</html>

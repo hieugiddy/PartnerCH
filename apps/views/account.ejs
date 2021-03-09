@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        <%= data.page_name%> |
+            <%= data.web_title%>
+    </title>
+    <%- include('account/head'); %>
+</head>
+
+<body class="hold-transition login-page">
+    <%- include('account/'+data.page); %>
+        <!-- /.login-box -->
+        <%- include('account/footer'); %>
+</body>
+
+</html>

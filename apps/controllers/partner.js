@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 var ac_helpers = require("../helpers/account");
 var DB = require("../common/DB");
-var conn = DB.getConnection;
+var conn = DB.getConnection();
 
 var web_title = "Partner - Cứu Hộ Giao Thông, Cứu Hộ Xe Cơ Giới Tại Khu Vực Đà Nẵng",
     app_name = "XXX Partner",

@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 var helpers = require("../helpers/account");
 var DB = require("../common/DB");
-var conn = DB.getConnection;
+var conn = DB.getConnection();
 
 router.route("/")
     .get(function(req, res) {

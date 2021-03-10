@@ -1,12 +1,4 @@
-var bcrypt = require("bcrypt");
 var config = require("config");
-
-function hash_pw(pw) {
-    var salt = bcrypt.genSaltSync(config.get("salt"));
-    var hash = bcrypt.hashSync(pw, salt);
-
-    return hash;
-}
 
 function kiemTraDangNhap(req) {
     if (req.session.User) {
@@ -31,7 +23,6 @@ function setSessionDangNhap(req) {
     }
 }
 module.exports = {
-    hash_pw: hash_pw,
     kiemTraDangNhap: kiemTraDangNhap,
     setSessionDangNhap: setSessionDangNhap,
     getSessionUser: getSessionUser

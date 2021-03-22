@@ -4,13 +4,13 @@
             <a class="h1"><b> <%= data.app_name%></b></a>
         </div>
         <div class="card-body">
-            <p class="login-box-msg">Bạn không nhớ mật khẩu? Hãy điền email đăng ký tài khoản vào ô dưới đây để nhận liên kết đặt lại mật khẩu mới cho tài khoản của mình.</p>
+            <p class="login-box-msg">Bạn không nhớ mật khẩu? Hãy điền tên đăng nhập vào ô dưới đây để nhận liên kết đặt lại mật khẩu mới cho tài khoản của mình.</p>
             <form action="recover-password.html" method="post">
                 <div class="input-group mb-3">
-                    <input type="email" name="email" class="form-control" placeholder="Email">
+                    <input type="text" name="username" class="form-control" placeholder="Tên đăng nhập">
                     <div class="input-group-append">
                         <div class="input-group-text">
-                            <span class="fas fa-envelope"></span>
+                            <span class="fas fa-user"></span>
                         </div>
                     </div>
                 </div>

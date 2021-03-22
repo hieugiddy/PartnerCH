@@ -51,5 +51,18 @@ router.route("/recovery-password")
                 }
             });
     });
-
+router.route("/doi-mk")
+    .get(function(req, res) {
+        if (helpers.kiemTraDangNhap(req))
+            res.render("account", {
+                data: {
+                    page: "doi_mk",
+                    web_title: "Partner - Cứu Hộ Giao Thông, Cứu Hộ Xe Cơ Giới Tại Khu Vực Đà Nẵng",
+                    page_name: "Đổi mật khẩu",
+                    app_name: "XXX Partner"
+                }
+            });
+        else
+            res.redirect("/");
+    });
 module.exports = router;

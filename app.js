@@ -13,7 +13,7 @@ app.use(session({
     secret: config.get('secret_key'),
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: true }
+    cookie: { maxAge: 3650000 }
 }));
 
 var controllers = require(__dirname + "/apps/controllers");

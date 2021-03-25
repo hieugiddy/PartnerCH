@@ -22,8 +22,15 @@ function setSessionDangNhap(req) {
         avatar: "/static/img/avatar.png"
     }
 }
+
+function dangXuat(req,res){
+    req.session.destroy(function(err) {
+        res.redirect("/")
+    })
+}
 module.exports = {
     kiemTraDangNhap: kiemTraDangNhap,
     setSessionDangNhap: setSessionDangNhap,
-    getSessionUser: getSessionUser
+    getSessionUser: getSessionUser,
+    dangXuat: dangXuat
 }

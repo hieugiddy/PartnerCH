@@ -65,4 +65,8 @@ router.route("/doi-mk")
         else
             res.redirect("/");
     });
+router.route("/dang-xuat")
+    .get(function(req, res) {
+        helpers.dangXuat(req,res)
+    });
 module.exports = router;

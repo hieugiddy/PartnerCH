@@ -6,8 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
         <%= data.page_name%> |
-            <%= data.web_title%>
+            <%= data.info[0].TenWebsite%>
     </title>
+    <meta name="description" content="<%= data.info[0].MoTa %>">
+    <meta type="keywords" content="<%= data.info[0].TuKhoa %>">
+
+    <link rel="shortcut icon" href="<%= data.info[0].Favicon %>" type="image/png">
     <%- include('partner/layout/head'); %>
 </head>
 

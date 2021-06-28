@@ -2,32 +2,18 @@
     <div class="card">
         <div class="card-header">Sửa dịch vụ</div>
         <div class="card-body">
-            <form id="quickForm" action="/" method="POST" enctype="multipart/form-data">
+            <form id="quickForm" method="POST">
                 <div class="card-body" style="padding: 0.5rem;">
                     <div class="row">
-                        <input type="hidden" name="MaDV" value="<%=data.id%>">
                         <div class="form-group col-12">
-                            <label for="tenchinhanh">Tên dịch vụ</label>
-                            <input type="text" name="tenchinhanh" class="form-control" id="tenchinhanh" value="Vá xe" placeholder="VD: Chi nhánh 1" required>
-                        </div>
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label>Chi nhánh</label>
-                                <div class="select2-purple">
-                                    <select class="select2" name="chinhanh" id="chinhanh" multiple="multiple" data-placeholder="Có thể chọn nhiều chi nhánh" data-dropdown-css-class="select2-purple" style="width: 100%;">
-                                        <option value="CN1" selected>Chi nhánh 1</option>
-                                        <option value="CN2">Chi nhánh 2</option>
-                                        <option value="CN3">Chi nhánh 3</option>
-                                        <option value="CN4">Chi nhánh 4</option>
-                                    </select>
-                                </div>
-                            </div>
+                            <label for="tendv">Tên dịch vụ</label>
+                            <input type="text" name="tendv" class="form-control" id="tendv" value="<%= data.chiTietDV[0].TenDichVu %>" required>
                         </div>
                         <div class="col-sm-12 ">
                             <div class="form-group ">
                                 <label>Mô tả</label>
-                                <textarea id="mota">
-                                    Mô tả về dịch vụ
+                                <textarea name="mota" id="mota">
+                                    <%= data.chiTietDV[0].MoTa %>
                                 </textarea>
                             </div>
                         </div>

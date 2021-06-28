@@ -28962,6 +28962,9 @@ select.form-control-sm ~ .select2-container--default .select2-selection--multipl
 
 .img-circle {
   border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  background-size: cover;
 }
 
 .img-size-64,

@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-var helpers = require("../helpers/account");
+var helpers = require("../helpers/default");
 var DB = require("../common/DB");
 var conn = DB.getConnection();
 

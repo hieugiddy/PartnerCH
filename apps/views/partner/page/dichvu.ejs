@@ -11,18 +11,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Vá lốp</td>
-                        <td>
-                            <a class="btn btn-secondary" href="/dich-vu/DV1/sua">
-                                <i class="fas fa-edit"></i>
-                            </a>
-                            <a class="btn btn-danger" href="/dich-vu/DV1/xoa">
-                                <i class="fas fa-trash"></i>
-                            </a>
-                        </td>
-                    </tr>
+                    <% data.dichvu.forEach(function(item){ %>
+                        <tr>
+                            <td><%= item.ID_DichVu %></td>
+                            <td><%= item.TenDichVu %></td>
+                            <td>
+                                <a class="btn btn-secondary" href="/dich-vu/<%= item.ID_DichVu %>/sua">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a class="btn btn-danger" href="/dich-vu/<%= item.ID_DichVu %>/xoa">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    <% }); %>
                 </tbody>
             </table>
         </div>

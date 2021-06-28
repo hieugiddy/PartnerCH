@@ -4,32 +4,36 @@
     <div class="card card-primary card-outline">
         <div class="card-body box-profile">
             <div class="text-center">
-                <img class="profile-user-img img-fluid img-circle" src="<%= data.avatar %>" alt="User profile picture">
+                <img class="profile-user-img img-fluid img-circle" src="<%= data.taikhoan[0].HinhDaiDien %>" alt="User profile picture" style="width:100px !important; height: 100px !important;background-size: cover;">
             </div>
 
             <h3 class="profile-username text-center">
-                <%= data.hoten %>
+                <%= data.taikhoan[0].HoVaTen %>
             </h3>
 
-            <p class="text-muted text-center">@
-                <%= data.username %>
+            <p class="text-muted text-center">@<%= data.taikhoan[0].TenDangNhap %>
             </p>
             
             <ul class="list-group list-group-unbordered mb-3">
                 <li class="list-group-item">
-                    <b>Ngày sinh</b> <a class="float-right">09/06/200</a>
+                    <b>Ngày sinh</b> <a class="float-right"><%= data.taikhoan[0].NgaySinh %></a>
                 </li>
                 <li class="list-group-item">
                     <b>Email</b>
-                    <a class="float-right">hieugiddy.pro@gmail.com</a>
+                    <a class="float-right"><%= data.taikhoan[0].Email %></a>
                 </li>
                 <li class="list-group-item">
                     <b>Giới tính</b>
-                    <a class="float-right">Nam</a>
+                    <% if (!data.taikhoan[0].GioiTinh) { %>
+                        <a class="float-right">Nữ</a>
+                    <% } %>
+                    <% if (data.taikhoan[0].GioiTinh) { %>
+                        <a class="float-right">Nam</a>
+                    <% } %>
                 </li>
                 <li class="list-group-item">
                     <b>Địa chỉ</b>
-                    <a class="float-right">12 Ông Ích Khiêm, Thanh Bình, Hải Châu, Đà Nẵng 550000, Việt Nam</a>
+                    <a class="float-right"><%= data.taikhoan[0].DiaChi %></a>
                 </li>
             </ul>
 
@@ -62,42 +66,46 @@
         <!-- /.card-header -->
         <div class="card-body">
             <strong><i class="far fa-chart-bar mr-1"></i></i> Trạng thái</strong>
-
-            <p class="text-muted">
-                Chưa phê duyệt
-            </p>
-
+            <% if (data.ttDoiTac[0].TrangThai==-1) { %>
+                <p class="text-muted">Chờ phê duyệt</p>
+            <% } %>
+            <% if (data.ttDoiTac[0].TrangThai==0) { %>
+                <p class="text-muted">Bị từ chối</p>
+            <% } %>
+            <% if (data.ttDoiTac[0].TrangThai==1) { %>
+                <p class="text-muted">Đã phê duyệt</p>
+            <% } %>
             <hr>
             <strong><i class="fas fa-address-card mr-1"></i> Tên doanh nghiệp</strong>
 
-            <p class="text-muted">
-                Trung Tâm Cứu Hộ Bảo Việt – Datraco
-            </p>
+            <p class="text-muted"><%= data.ttDoiTac[0].TenDoanhNghiep %></p>
 
             <hr>
             <strong><i class="fas fa-pencil-alt mr-1"></i> Giới thiệu</strong>
 
             <p class="text-muted">
-                Từ ngày 9-4, Tổng công ty Bảo hiểm Việt Nam, Công ty Bảo hiểm Ðà Nẵng, Công ty Thương mại Quảng Nam - Ðà Nẵng đã phối hợp thành lập và đưa Trung tâm cứu hộ giao thông Bảo Việt - Datraco tại Ðà Nẵng vào hoạt động. Trung tâm này có trụ sở tại 155 - Lê Ðình
-                Lý - Ðà Nẵng. Ðiện thoại: 0511.618170 và 0905092525. Trực 24/24 giờ.
+                <%= data.ttDoiTac[0].GioiThieuNgan %>
             </p>
 
             <hr>
            
             <strong><i class="fas fa-list mr-1"></i> Lĩnh vực kinh doanh</strong>
 
-            <p class="text-muted">Cứu hộ xe máy, Sửa chữa xe máy, Sửa xe tại nhà</p>
-
+            <p class="text-muted">
+            <% data.lvkd.forEach(function(item){ %>
+                <%= item.TenLinhVuc %>,&nbsp;
+            <% }); %>
+            </p>
             <hr>
 
             <strong><i class="far fa-file-alt mr-1"></i> Loại hình</strong>
 
-            <p class="text-muted">Doanh nghiệp nhà nước</p>
+            <p class="text-muted"><%= data.ttDoiTac[0].TenLoaiHinh %></p>
             <hr>
 
             <strong><i class="fas fa-clock mr-1"></i> Ngày tham gia</strong>
 
-            <p class="text-muted">09/12/2012</p>
+            <p class="text-muted"><%= data.ttDoiTac[0].NgayThamGia %></p>
         </div>
         <!-- /.card-body -->
     </div>

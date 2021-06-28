@@ -2,6 +2,8 @@ var express = require("express");
 var config = require("config");
 var bodyParser = require("body-parser");
 var session = require("express-session");
+var path = require('path');
+global.appRoot = path.resolve(__dirname);
 
 var app = express();
 

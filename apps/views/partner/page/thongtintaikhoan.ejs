@@ -15,59 +15,69 @@
         <div class="card-body">
             <div class="tab-content">
                 <div class="active tab-pane" id="activity">
-                    <form id="quickForm" action="/" method="POST" enctype="multipart/form-data">
+                    <form id="quickForm" method="POST" enctype="multipart/form-data">
                         <div class="card-body" style="padding: 0.5rem;">
                             <div class="row">
                                 <div class="form-group col-md-6">
                                     <label for="hoten">Họ tên</label>
-                                    <input type="text" name="hoten" class="form-control" id="hoten" value="Đặng Minh Hiếu" placeholder="Họ tên đầy đủ" required>
+                                    <input type="text" name="HoVaTen" class="form-control" id="hoten"
+                                        value="<%= data.taikhoan[0].HoVaTen %>" placeholder="Họ tên đầy đủ" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="gioitinh">Giới tính</label>
-                                    <select class="custom-select rounded-0 form-control" name="gioitinh" id="gioitinh" required>
-                                        <option value="Nam">Nam</option>
-                                        <option value="Nữ">Nữ</option>
+                                    <select class="custom-select rounded-0 form-control" name="GioiTinh" id="gioitinh"
+                                        required>
+                                        <option value="1">Nam</option>
+                                        <option value="0">Nữ</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="sodt">Số điện thoại</label>
-                                    <input type="text" name="sodt" class="form-control" id="sodt" value="0368376081" placeholder="Số điện thoại" required>
+                                    <input type="text" name="SoDienThoai" class="form-control" id="sodt"
+                                        value="<%= data.taikhoan[0].SoDienThoai %>" placeholder="Số điện thoại"
+                                        required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label>Ngày sinh:</label>
                                     <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                                        <input type="text" name="ngaysinh" id="ngaysinh" class="form-control datetimepicker-input" data-target="#reservationdate" value="09/06/2000" required />
-                                        <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                                            <div class="input-group-text" id="ic-ngaysinh"><i class="fa fa-calendar"></i></div>
+                                        <input type="text" name="NgaySinh" id="ngaysinh"
+                                            class="form-control datetimepicker-input" data-target="#reservationdate"
+                                            value="<%= data.taikhoan[0].NgaySinh %>" required />
+                                        <div class="input-group-append" data-target="#reservationdate"
+                                            data-toggle="datetimepicker">
+                                            <div class="input-group-text" id="ic-ngaysinh"><i
+                                                    class="fa fa-calendar"></i></div>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="form-group col-md-6">
                                     <label for="email">Email</label>
-                                    <input type="email" name="email" class="form-control" id="email" value="hieugiddy.pro@gmail.com" placeholder="Email" required>
-                                </div>
-                                <div class="form-group col-md-6 mt-1">
-                                    <label for="quoctich">Quốc tịch</label>
-                                    <select class="selectpicker countrypicker form-control" data-live-search="true" name="quoctich" id="quoctich"></select>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="avatar">Ảnh đại diện</label><br>
-                                    <img src="<%= data.avatar %>" alt="" width="100px" class="d-block mb-2" id="img-avatar" />
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" name="avatar" id="avatar" onchange="readURL(this,'img-avatar');" accept="image/gif, image/jpeg, image/png">
-                                        <label class="custom-file-label" for="avatar">Chọn file</label>
-                                    </div>
+                                    <input type="email" name="Email" class="form-control" id="email"
+                                        value="<%= data.taikhoan[0].Email %>" placeholder="Email" required>
                                 </div>
                                 <div class="form-group col-md-6 mt-1">
                                     <label for="avatar">Địa chỉ</label><br>
-                                    <input type="text" id="pickup_country" class="form-control" value="12 Ông Ích Khiêm, Thanh Bình, Hải Châu, Đà Nẵng 550000, Việt Nam" placeholder="Address" />
+                                    <input type="text" id="pickup_country" class="form-control" name="DiaChi"
+                                        value="<%= data.taikhoan[0].DiaChi %>" placeholder="Address" />
                                 </div>
+                                <div class="form-group col-md-6">
+                                    <label for="avatar">Ảnh đại diện</label><br>
+                                    <img src="<%= data.taikhoan[0].HinhDaiDien %>" alt="" width="100px"
+                                        class="d-block mb-2" id="img-avatar" />
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" name="HinhDaiDien" id="avatar"
+                                            onchange="readURL(this,'img-avatar');"
+                                            accept="image/gif, image/jpeg, image/png">
+                                        <label class="custom-file-label" for="avatar">Chọn file</label>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                         <!-- /.card-body -->
-                        <div class="">
-                            <button type="submit" id="btn-luucoban" name="btn-luucoban" class="btn btn-primary">Lưu</button>
+                        <div class="mt-5 text-right">
+                            <button type="submit" id="btn-luucoban" name="btnLuuCB" class="btn btn-primary">Lưu</button>
                         </div>
                     </form>
                 </div>
@@ -75,39 +85,41 @@
                 <div class="tab-pane" id="timeline">
                     <form id="quickForm" action="/" method="POST">
                         <div class="row">
+                            <input type="hidden" name="ID_DoiTac" value="<%= data.ttDoiTac[0].ID_DoiTac %>" />
                             <div class="form-group col-md-6">
                                 <label for="maso">Mã số doanh nghiệp</label>
-                                <input type="text" name="maso" class="form-control" id="maso" value="MS10031" placeholder="Mã số doanh nghiệp">
+                                <input type="text" name="MaSoDoanhNghiep" class="form-control" id="maso"
+                                    value="<%= data.ttDoiTac[0].MaSoDoanhNghiep %>" placeholder="Mã số doanh nghiệp">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="tendoanhnghiep">Tên doanh nghiệp</label>
-                                <input type="text" name="tendoanhnghiep" class="form-control" id="tendoanhnghiep" value="Trung Tâm Cứu Hộ Bảo Việt – Datraco" placeholder="Tên doanh nghiệp" required>
+                                <input type="text" name="TenDoanhNghiep" class="form-control" id="tendoanhnghiep"
+                                    value="<%= data.ttDoiTac[0].TenDoanhNghiep %>" placeholder="Tên doanh nghiệp"
+                                    required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="loaihinh">Loại hình kinh doanh</label>
-                                <select class="custom-select rounded-0 form-control" name="loaihinh" id="loaihinh" required>
-                                    <option value="LH1"> Doanh nghiệp liên doanh </option>
-                                    <option value="LH2"> Doanh nghiệp 100% vốn đầu tư nước ngoài</option>
-                                    <option value="LH3">Công ty TNHH 1 thành viên</option>
-                                    <option value="LH4">Doanh nghiệp tư nhân</option>
-                                    <option value="LH5">Doanh nghiệp nhà nước</option>
-                                    <option value="LH6">Cá nhân tự phát</option>
+                                <select class="custom-select rounded-0 form-control" name="IDLoaiHinh" id="loaihinh"
+                                    required>
+                                    <% data.loaihinh.forEach(function(item){ %>
+                                    <option value="<%= item.IDLoaiHinh %>"> <%= item.TenLoaiHinh %> </option>
+                                    <% }); %>
                                 </select>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>Lĩnh vực kinh doanh</label>
                                     <div class="select2-purple">
-                                        <select class="select2" name="linhvuckinhdoanh" id="linhvuckinhdoanh" multiple="multiple" data-placeholder="Có thể chọn nhiều lĩnh vực" data-dropdown-css-class="select2-purple" style="width: 100%;">
-                                            <option value="LV1" selected>Cứu hộ xe máy</option>
-                                            <option value="LV2">Cứu hộ ôtô</option>
-                                            <option value="LV3">Cứu hộ xe điện</option>
-                                            <option value="LV4" selected>Sửa chữa xe máy</option>
-                                            <option value="LV5">Sửa chữa xe điện</option>
-                                            <option value="LV6">Sửa chữa xe ôtô</option>
-                                            <option value="LV7" selected>Thợ sửa khóa xe</option>
-                                            <option value="LV8" selected>Giao xăng hộ</option>
-                                            <option value="LV9" selected>Sửa xe tại nhà</option>
+                                        <select class="select2" name="LinhVucKinhDoanh[]" id="linhvuckinhdoanh"
+                                            multiple="multiple" data-placeholder="Có thể chọn nhiều lĩnh vực"
+                                            data-dropdown-css-class="select2-purple" style="width: 100%;">
+                                            <% data.linhvuccc.forEach(function(item){ %>
+                                            <option value="<%= item.ID_LinhVuc %>"> <%= item.TenLinhVuc %> </option>
+                                            <% }); %>
+                                            <% data.lvkd.forEach(function(item){ %>
+                                            <option value="<%= item.ID_LinhVuc %>" selected> <%= item.TenLinhVuc %>
+                                            </option>
+                                            <% }); %>
                                         </select>
                                     </div>
                                 </div>
@@ -116,8 +128,11 @@
                             <div class="form-group col-md-6">
                                 <label>Ngày hoạt động:</label>
                                 <div class="input-group date" id="ngayhoatdong" data-target-input="nearest">
-                                    <input type="text" name="ngayhoatdong" id="ngayhoatdong" class="form-control datetimepicker-input" data-target="#ngayhoatdong" value="09/06/2000" required />
-                                    <div class="input-group-append" data-target="#ngayhoatdong" data-toggle="datetimepicker">
+                                    <input type="text" name="NgayHoatDong" id="ngayhoatdong"
+                                        class="form-control datetimepicker-input" data-target="#ngayhoatdong"
+                                        value="<%= data.ttDoiTac[0].NgayHoatDong %>" required />
+                                    <div class="input-group-append" data-target="#ngayhoatdong"
+                                        data-toggle="datetimepicker">
                                         <div class="input-group-text" id="ic-ngaysinh"><i class="fa fa-calendar"></i>
                                         </div>
                                     </div>
@@ -125,24 +140,27 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="website">Website/Fanpage/Facebook các nhân</label>
-                                <input type="text" name="website" class="form-control" id="website" value="https://baovietonline.com.vn/View?id=104" placeholder="Dán link của bạn tại đây" required>
+                                <input type="text" name="Website" class="form-control" id="website"
+                                    value="<%= data.ttDoiTac[0].Website %>" placeholder="Dán link của bạn tại đây"
+                                    required>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>Giới thiệu ngắn</label>
-                                    <textarea class="form-control" name="gioithieungan" id="gioithieungan" rows="5" placeholder="Enter ...">Từ ngày 9-4, Tổng công ty Bảo hiểm Việt Nam, Công ty Bảo hiểm Ðà Nẵng, Công ty Thương mại Quảng Nam - Ðà Nẵng đã phối hợp thành lập và đưa Trung tâm cứu hộ giao thông Bảo Việt - Datraco tại Ðà Nẵng vào hoạt động. Trung tâm này có trụ sở tại 155 - Lê Ðình Lý - Ðà Nẵng. Ðiện thoại: 0511.618170 và 0905092525. Trực 24/24 giờ.
-                                    </textarea>
+                                    <textarea class="form-control" name="GioiThieuNgan" id="gioithieungan" rows="5"
+                                        placeholder="Enter ..."><%= data.ttDoiTac[0].GioiThieuNgan %></textarea>
                                 </div>
                             </div>
                         </div>
-                        <div class="">
-                            <button type="submit" id="btn-luunangcao" name="btn-luunangcao" class="btn btn-primary">Lưu</button>
+                        <div class="text-right mt-5">
+                            <button type="submit" id="btnLuuNC" name="btnLuuNC" class="btn btn-primary">Lưu</button>
                         </div>
                     </form>
                 </div>
                 <!-- /.tab-pane -->
                 <div class="tab-pane" id="hopdong">
-                    <p>Tải xuống hợp đồng, in ra, điền vào và ký tên (đóng dấu). Rồi đến nộp tại văn phòng của chúng tôi, để hoàn tất đăng ký cung cấp dịch vụ trên ứng dụng.
+                    <p>Tải xuống hợp đồng, in ra, điền vào và ký tên (đóng dấu). Rồi đến nộp tại văn phòng của chúng
+                        tôi, để hoàn tất đăng ký cung cấp dịch vụ trên ứng dụng.
                         <a href="https://drive.google.com/u/2/uc?id=1MY9EDMAvoFwNYuxH18t1YDBUBntxl7Yf&export=download">Tải
                             xuống tại đây.</a>
                     </p>
@@ -150,7 +168,8 @@
                         <strong>Địa chỉ văn phòng: 46 Cao Thắng, Phường Thanh Bình, Quận Hải Châu, TP.Đà Nẵng</strong>
                     </div>
                     <h4>Xem trước hợp đồng</h4>
-                    <center><iframe src="https://drive.google.com/file/d/1MY9EDMAvoFwNYuxH18t1YDBUBntxl7Yf/preview" frameborder="0" width="90%" height="700px"></iframe></center>
+                    <center><iframe src="https://drive.google.com/file/d/1MY9EDMAvoFwNYuxH18t1YDBUBntxl7Yf/preview"
+                            frameborder="0" width="90%" height="700px"></iframe></center>
                 </div>
 
             </div>
@@ -162,208 +181,52 @@
 
     <div class="card">
         <div class="card-header p-2">
-            <h4>Upload ảnh</h4>
+            <h4>Giấy tờ tùy thân</h4>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
             <div class="tab-content">
                 <div class="active tab-pane" id="upload">
-                    <form id="quickForm" action="/" method="POST" enctype="multipart/form-data">
+                    <form id="quickForm" action="/upload-giay-to" method="POST" enctype="multipart/form-data">
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label for="bf-cmnd">Ảnh mặt trước CMND/CCCD</label><br>
-                                <img src="http://vyctravel.com/libs/upload/ckfinder/images/Visa/h%E1%BB%99%20chi%E1%BA%BFu/Untitled-6(1).jpg" alt="" width="300px" class="d-block mb-2" id="img-bf-cmnd" />
+                                <img src="<%= data.taikhoan[0].AnhMatTruocCMND %>" alt="" width="300px"
+                                    class="d-block mb-2" id="img-bf-cmnd" />
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" name="bf-cmnd" id="bf-cmnd" onchange="readURL(this,'img-bf-cmnd');" accept="image/jpeg, image/png">
+                                    <input type="hidden" name="tCMND" value="<%= data.taikhoan[0].AnhMatTruocCMND %>">
+                                    <input type="file" class="custom-file-input" name="fileCMNDT" id="bf-cmnd"
+                                        onchange="readURL(this,'img-bf-cmnd');" accept="image/jpeg, image/png">
                                     <label class="custom-file-label" for="bf-cmnd">Chọn file</label>
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="af-cmnd">Ảnh mặt sau CMND/CCCD</label><br>
-                                <img src="https://i.pinimg.com/originals/63/21/ae/6321aea41990552b5148a00998413374.jpg" alt="" width="300px" class="d-block mb-2" id="img-af-cmnd" />
+                                <img src="<%= data.taikhoan[0].AnhMatSauCMND %>" alt="" width="300px"
+                                    class="d-block mb-2" id="img-af-cmnd" />
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" name="af-cmnd" id="af-cmnd" onchange="readURL(this,'img-af-cmnd');" accept="image/jpeg,image/png">
+                                    <input type="hidden" name="sCMND" value="<%= data.taikhoan[0].AnhMatSauCMND %>">
+                                    <input type="file" class="custom-file-input" name="fileCMNDS" id="af-cmnd"
+                                        onchange="readURL(this,'img-af-cmnd');" accept="image/jpeg,image/png">
                                     <label class="custom-file-label" for="af-cmnd">Chọn file</label>
                                 </div>
                             </div>
                             <div class="form-group col-md-6 mt-5">
                                 <label for="giayphep">Ảnh chụp giấy đăng ký kinh doanh/Giấy phép kinh doanh</label><br>
-                                <img src="https://thanhlapdoanhnghiepvn.vn/Uploads/images/dang-ky-giay-phep-kinh-doanh-doanh-nghiep(1).jpg" alt="" width="300px" class="d-block mb-2" id="img-giayphep" />
+                                <img src="<%= data.giayPhepKD[0].LinkAnh %>" alt="" width="300px" class="d-block mb-2"
+                                    id="img-giayphep" />
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" name="giayphep" id="giayphep" onchange="readURL(this,'img-giayphep');" accept="image/jpeg,image/png">
+                                    <input type="hidden" name="ID_DoiTac" value="<%= data.ttDoiTac[0].ID_DoiTac %>" />
+                                    <input type="hidden" name="AnhGiayTo" value="<%= data.giayPhepKD[0].ID_Anh %>">
+                                    <input type="hidden" name="anhGT" value="<%= data.giayPhepKD[0].LinkAnh %>">
+                                    <input type="file" class="custom-file-input" name="fileGT" id="giayphep"
+                                        onchange="readURL(this,'img-giayphep');" accept="image/jpeg,image/png">
                                     <label class="custom-file-label" for="giayphep">Chọn file</label>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-12 mt-5">
-                            <div class="card card-default">
-                                <div class="card-header">
-                                    <h3 class="card-title">Ảnh chụp về nơi làm việc<small></h3>
-                                </div>
 
-                                <div class="row">
-                                    <div class="col-sm-2">
-                                        <a href="https://via.placeholder.com/1200/FFFFFF.png?text=1"
-                                            data-toggle="lightbox" data-title="sample 1 - white" data-gallery="gallery">
-                                            <img src="https://via.placeholder.com/300/FFFFFF?text=1"
-                                                class="img-fluid mb-2" alt="white sample" />
-                                        </a>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <a href="https://via.placeholder.com/1200/000000.png?text=2"
-                                            data-toggle="lightbox" data-title="sample 2 - black" data-gallery="gallery">
-                                            <img src="https://via.placeholder.com/300/000000?text=2"
-                                                class="img-fluid mb-2" alt="black sample" />
-                                        </a>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <a href="https://via.placeholder.com/1200/FF0000/FFFFFF.png?text=3"
-                                            data-toggle="lightbox" data-title="sample 3 - red" data-gallery="gallery">
-                                            <img src="https://via.placeholder.com/300/FF0000/FFFFFF?text=3"
-                                                class="img-fluid mb-2" alt="red sample" />
-                                        </a>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <a href="https://via.placeholder.com/1200/FF0000/FFFFFF.png?text=4"
-                                            data-toggle="lightbox" data-title="sample 4 - red" data-gallery="gallery">
-                                            <img src="https://via.placeholder.com/300/FF0000/FFFFFF?text=4"
-                                                class="img-fluid mb-2" alt="red sample" />
-                                        </a>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <a href="https://via.placeholder.com/1200/000000.png?text=5"
-                                            data-toggle="lightbox" data-title="sample 5 - black" data-gallery="gallery">
-                                            <img src="https://via.placeholder.com/300/000000?text=5"
-                                                class="img-fluid mb-2" alt="black sample" />
-                                        </a>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <a href="https://via.placeholder.com/1200/FFFFFF.png?text=6"
-                                            data-toggle="lightbox" data-title="sample 6 - white" data-gallery="gallery">
-                                            <img src="https://via.placeholder.com/300/FFFFFF?text=6"
-                                                class="img-fluid mb-2" alt="white sample" />
-                                        </a>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <a href="https://via.placeholder.com/1200/FFFFFF.png?text=7"
-                                            data-toggle="lightbox" data-title="sample 7 - white" data-gallery="gallery">
-                                            <img src="https://via.placeholder.com/300/FFFFFF?text=7"
-                                                class="img-fluid mb-2" alt="white sample" />
-                                        </a>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <a href="https://via.placeholder.com/1200/000000.png?text=8"
-                                            data-toggle="lightbox" data-title="sample 8 - black" data-gallery="gallery">
-                                            <img src="https://via.placeholder.com/300/000000?text=8"
-                                                class="img-fluid mb-2" alt="black sample" />
-                                        </a>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <a href="https://via.placeholder.com/1200/FF0000/FFFFFF.png?text=9"
-                                            data-toggle="lightbox" data-title="sample 9 - red" data-gallery="gallery">
-                                            <img src="https://via.placeholder.com/300/FF0000/FFFFFF?text=9"
-                                                class="img-fluid mb-2" alt="red sample" />
-                                        </a>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <a href="https://via.placeholder.com/1200/FFFFFF.png?text=10"
-                                            data-toggle="lightbox" data-title="sample 10 - white"
-                                            data-gallery="gallery">
-                                            <img src="https://via.placeholder.com/300/FFFFFF?text=10"
-                                                class="img-fluid mb-2" alt="white sample" />
-                                        </a>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <a href="https://via.placeholder.com/1200/FFFFFF.png?text=11"
-                                            data-toggle="lightbox" data-title="sample 11 - white"
-                                            data-gallery="gallery">
-                                            <img src="https://via.placeholder.com/300/FFFFFF?text=11"
-                                                class="img-fluid mb-2" alt="white sample" />
-                                        </a>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <a href="https://via.placeholder.com/1200/000000.png?text=12"
-                                            data-toggle="lightbox" data-title="sample 12 - black"
-                                            data-gallery="gallery">
-                                            <img src="https://via.placeholder.com/300/000000?text=12"
-                                                class="img-fluid mb-2" alt="black sample" />
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div class="card-body">
-                                    <div id="actions" class="row">
-                                        <div class="col-lg-6">
-                                            <div class="btn-group w-100">
-                                                <span class="btn btn-success col fileinput-button">
-                                                    <i class="fas fa-plus"></i>
-                                                    <span>Add files</span>
-                                                </span>
-                                                <button type="submit" class="btn btn-primary col start">
-                                                    <i class="fas fa-upload"></i>
-                                                    <span>Start upload</span>
-                                                </button>
-                                                <button type="reset" class="btn btn-warning col cancel">
-                                                    <i class="fas fa-times-circle"></i>
-                                                    <span>Cancel upload</span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 d-flex align-items-center">
-                                            <div class="fileupload-process w-100">
-                                                <div id="total-progress" class="progress progress-striped active"
-                                                    role="progressbar" aria-valuemin="0" aria-valuemax="100"
-                                                    aria-valuenow="0">
-                                                    <div class="progress-bar progress-bar-success" style="width:0%;"
-                                                        data-dz-uploadprogress></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="table table-striped files" id="previews">
-                                        <div id="template" class="row mt-2">
-                                            <div class="col-auto">
-                                                <span class="preview"><img src="data:," alt=""
-                                                        data-dz-thumbnail /></span>
-                                            </div>
-                                            <div class="col d-flex align-items-center">
-                                                <p class="mb-0">
-                                                    <span class="lead" data-dz-name></span> (
-                                                    <span data-dz-size></span>)
-                                                </p>
-                                                <strong class="error text-danger" data-dz-errormessage></strong>
-                                            </div>
-                                            <div class="col-4 d-flex align-items-center">
-                                                <div class="progress progress-striped active w-100" role="progressbar"
-                                                    aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                                                    <div class="progress-bar progress-bar-success" style="width:0%;"
-                                                        data-dz-uploadprogress></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-auto d-flex align-items-center">
-                                                <div class="btn-group">
-                                                    <button class="btn btn-primary start">
-                                                        <i class="fas fa-upload"></i>
-                                                        <span>Start</span>
-                                                    </button>
-                                                    <button data-dz-remove class="btn btn-warning cancel">
-                                                        <i class="fas fa-times-circle"></i>
-                                                        <span>Cancel</span>
-                                                    </button>
-                                                    <button data-dz-remove class="btn btn-danger delete">
-                                                        <i class="fas fa-trash"></i>
-                                                        <span>Delete</span>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <!-- /.card -->
-                        </div>
-                        <div class="">
+                        <div class="text-right mt-5">
                             <button type="submit" id="btn-uploadanh" name="btn-uploadanh"
                                 class="btn btn-primary ml-auto">Lưu</button>
                         </div>
@@ -374,7 +237,101 @@
             </div>
         </div>
     </div>
-    
+
+    <div class="card">
+        <div class="card-header p-2">
+            <h4>Ảnh chụp về nơi làm việc</h4>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <div class="tab-content">
+                <div class="active tab-pane">
+                    <div class="row" id="hinhAnhNoiLamViec">
+                        <% data.hinhAnhs.forEach(function(item){ %>
+                        <div class="col-sm-2 hinhanhsp-containt">
+                            <a href="<%= item.LinkAnh %>" data-toggle="lightbox" data-title="Hình ảnh nơi làm việc"
+                                data-gallery="gallery">
+                                <img src="<%= item.LinkAnh %>" class="img-fluid mb-2" alt="white sample" />
+                            </a>
+                            <a style="cursor:pointer" onclick="xoaAnh('<%= item.ID_Anh%>')" class="hinhanhsp"><i class="fa fa-trash"></i></a>
+                        </div>
+                        <% }); %>
+                    </div>
+
+                    <div class="card-body">
+                        <div id="actions" class="row">
+                            <div class="col-lg-6">
+                                <div class="btn-group w-100">
+                                    <span class="btn btn-success col fileinput-button">
+                                        <i class="fas fa-plus"></i>
+                                        <span>Add files</span>
+                                    </span>
+                                    <button type="submit" class="btn btn-primary col start">
+                                        <i class="fas fa-upload"></i>
+                                        <span>Start upload</span>
+                                    </button>
+                                    <button type="reset" class="btn btn-warning col cancel">
+                                        <i class="fas fa-times-circle"></i>
+                                        <span>Cancel upload</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 d-flex align-items-center">
+                                <div class="fileupload-process w-100">
+                                    <div id="total-progress" class="progress progress-striped active" role="progressbar"
+                                        aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                                        <div class="progress-bar progress-bar-success" style="width:0%;"
+                                            data-dz-uploadprogress></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table table-striped files" id="previews">
+                            <div id="template" class="row mt-2">
+                                <div class="col-auto">
+                                    <span class="preview"><img src="data:," alt="" data-dz-thumbnail /></span>
+                                </div>
+                                <div class="col d-flex align-items-center">
+                                    <p class="mb-0">
+                                        <span class="lead" data-dz-name></span> (
+                                        <span data-dz-size></span>)
+                                    </p>
+                                    <strong class="error text-danger" data-dz-errormessage></strong>
+                                </div>
+                                <div class="col-4 d-flex align-items-center">
+                                    <div class="progress progress-striped active w-100" role="progressbar"
+                                        aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                                        <div class="progress-bar progress-bar-success" style="width:0%;"
+                                            data-dz-uploadprogress></div>
+                                    </div>
+                                </div>
+                                <div class="col-auto d-flex align-items-center">
+                                    <div class="btn-group">
+                                        <button class="btn btn-primary start">
+                                            <i class="fas fa-upload"></i>
+                                            <span>Start</span>
+                                        </button>
+                                        <button data-dz-remove class="btn btn-warning cancel">
+                                            <i class="fas fa-times-circle"></i>
+                                            <span>Cancel</span>
+                                        </button>
+                                        <button data-dz-remove class="btn btn-danger delete">
+                                            <i class="fas fa-trash"></i>
+                                            <span>Delete</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
 </div>
 
 <script src="/static/js/bootstrap-select-country.min.js"></script>
@@ -410,4 +367,119 @@
             });
         });
     });
+    $("#gioitinh").val('<%= data.taikhoan[0].GioiTinh %>');
+    $("#loaihinh").val('<%= data.ttDoiTac[0].IDLoaiHinh %>');
 </script>
+<script>
+    function showAnh(res) {
+        s = '';
+        for (var i = 0; i < res.length; i++) {
+            s += '<div class="col-sm-2 hinhanhsp-containt"><a href = "' + res[i].LinkAnh + '" data-toggle="lightbox" data-title="Hình ảnh nơi làm việc ' + i + '" data-gallery="gallery" ><img src="' + res[i].LinkAnh + '" class="img-fluid mb-2" alt="white sample" /></a><a style="cursor:pointer" onclick="xoaAnh(\'' + res[i].ID_Anh + '\')" class="hinhanhsp"><i class="fa fa-trash"></i></a></div>';
+        }
+        $("#hinhAnhNoiLamViec").html(s);
+    }
+    function xoaAnh(id) {
+        $.post("/xoa-hinh-anh-doi-tac", 
+        { 
+            idAnh: id,
+            idDT: "<%= data.ttDoiTac[0].ID_DoiTac %>" 
+        }, 
+        function (result) {
+            showAnh(result);
+        });
+    }
+</script>
+<script>
+    // DropzoneJS Demo Code Start
+    Dropzone.autoDiscover = false;
+
+
+    // Get the template HTML and remove it from the doumenthe template HTML and remove it from the doument
+    var previewNode = document.querySelector("#template");
+    previewNode.id = "";
+    var previewTemplate = previewNode.parentNode.innerHTML;
+    previewNode.parentNode.removeChild(previewNode);
+
+    var myDropzone = new Dropzone(document.body, { // Make the whole body a dropzone
+        url: "/upload-anh-doi-tac", // Set the url
+        thumbnailWidth: 80,
+        thumbnailHeight: 80,
+        parallelUploads: 1000,
+        acceptedFiles: "image/*",
+        previewTemplate: previewTemplate,
+        init: function () {
+            this.on("sending", function (file, xhr, formData) {
+                formData.append("idDT", "<%= data.ttDoiTac[0].ID_DoiTac %>");
+                console.log(formData);
+            });
+        },
+        autoQueue: false, // Make sure the files aren't queued until manually added
+        previewsContainer: "#previews", // Define the container to display the previews
+        clickable: ".fileinput-button" // Define the element that should be used as click trigger to select files.
+    });
+
+    myDropzone.on("complete", function (data) {
+        var res = JSON.parse(data.xhr.responseText);
+        showAnh(res);
+    });
+    myDropzone.on("addedfile", function (file) {
+        // Hookup the start button
+        file.previewElement.querySelector(".start").onclick = function () {
+            myDropzone.enqueueFile(file);
+        }
+    });
+
+    // Update the total progress bar
+    myDropzone.on("totaluploadprogress", function (progress) {
+        document.querySelector("#total-progress .progress-bar").style.width = progress + "%";
+    });
+
+    myDropzone.on("sending", function (file) {
+        // Show the total progress bar when upload starts
+        document.querySelector("#total-progress").style.opacity = "1";
+        // And disable the start button
+        file.previewElement.querySelector(".start").setAttribute("disabled", "disabled");
+    });
+
+    // Hide the total progress bar when nothing's uploading anymore
+    myDropzone.on("queuecomplete", function (progress) {
+        document.querySelector("#total-progress").style.opacity = "0";
+    });
+
+    // Setup the buttons for all transfers
+    // The "add files" button doesn't need to be setup because the config
+    // `clickable` has already been specified.
+    document.querySelector("#actions .start").onclick = function () {
+        myDropzone.enqueueFiles(myDropzone.getFilesWithStatus(Dropzone.ADDED));
+    }
+    document.querySelector("#actions .cancel").onclick = function () {
+        myDropzone.removeAllFiles(true);
+    }
+        // DropzoneJS Demo Code End
+</script>
+<style>
+    .hinhanhsp-containt {
+        position: relative
+    }
+
+    .hinhanhsp {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 7px 8px;
+        background: #900;
+        color: #fff;
+        border-radius: 5px;
+    }
+
+    .hinhanhsp:hover {
+        background: green;
+        color: #fff;
+    }
+
+    .hinhanhsp:hover::after {
+        color: #fff;
+        transition: 1s;
+        content: ' Xoá'
+    }
+</style>

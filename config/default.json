@@ -4,10 +4,10 @@
         "port": "8889"
     },
     "mysql": {
-        "host": "149.28.156.47",
+        "host": "108.160.135.242",
         "port": 3306,
         "database": "cuuhoxe",
-        "username": "root",
+        "username": "hieugiddy",
         "password": "Anhyeuem123@"
     },
     "salt": 10,
